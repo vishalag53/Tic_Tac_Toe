@@ -2,6 +2,7 @@ package com.vishalag53.tictactoe;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -49,7 +50,6 @@ public class MainActivity extends Activity {
             if(count>4){
 
                 getString();
-
                 if(!b1.equals("") && b1.equals(b2) && b2.equals(b3)){
                     Toast.makeText(getApplicationContext(),"Winner is " + b1,Toast.LENGTH_SHORT).show();
                     newGame();
@@ -103,16 +103,21 @@ public class MainActivity extends Activity {
     }
 
     public void newGame(){
-        btn1.setText("");
-        btn2.setText("");
-        btn3.setText("");
-        btn4.setText("");
-        btn5.setText("");
-        btn6.setText("");
-        btn7.setText("");
-        btn8.setText("");
-        btn9.setText("");
-        count=0;
-        flag=0;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btn1.setText("");
+                btn2.setText("");
+                btn3.setText("");
+                btn4.setText("");
+                btn5.setText("");
+                btn6.setText("");
+                btn7.setText("");
+                btn8.setText("");
+                btn9.setText("");
+                count=0;
+                flag=0;
+            }
+        },10000);
     }
 }
